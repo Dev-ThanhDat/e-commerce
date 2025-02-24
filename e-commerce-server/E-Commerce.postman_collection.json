@@ -1,0 +1,2560 @@
+{
+	"info": {
+		"_postman_id": "8ec05486-be4d-4ffc-880e-585b28fe4df8",
+		"name": "E-Commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36434284"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register A User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "avatar",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login A User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout A User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token A User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/refresh-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password A User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"\",\r\n    \"newPassword\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/all-users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"all-users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\":\"\",\r\n    \"lastname\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Wishlist",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/wishlist/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"wishlist",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add To Wishlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/wishlist/:productId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"wishlist",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create A Product (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Product (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/product/:productId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"star\":\"\",\r\n    \"productId\":\"\",\r\n    \"comment\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/rating",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Product (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/:productId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/:productId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"appro\",\r\n    \"slug\":\"dsf\",\r\n    \"description\":\"sdfasdfsfsdf\",\r\n    \"price\":500,\r\n    \"quantity\":120\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "totalRating",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Create A Blog (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/blog",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Blog (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/blog/:blogId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog",
+								":blogId"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Blog (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/blog/:blogId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog",
+								":blogId"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Blog",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/blog/:blogId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog",
+								":blogId"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Blog",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/blog",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like A Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/blog/like/:blogId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog",
+								"like",
+								":blogId"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dislike A Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/blog/dislike/:blogId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"blog",
+								"dislike",
+								":blogId"
+							],
+							"variable": [
+								{
+									"key": "blogId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Category",
+			"item": [
+				{
+					"name": "Create A Category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pcategory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pcategory/:categoryId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pcategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pcategory/:categoryId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pcategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pcategory/:categoryId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pcategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pcategory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pcategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog Category",
+			"item": [
+				{
+					"name": "Create A Category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bcategory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bcategory/:categoryId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bcategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Category (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bcategory/:categoryId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bcategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bcategory/:categoryId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bcategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bcategory",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bcategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Create A Brand (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Brand (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand/:brandId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								":brandId"
+							],
+							"variable": [
+								{
+									"key": "brandId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Brand (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand/:brandId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								":brandId"
+							],
+							"variable": [
+								{
+									"key": "brandId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Brand",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand/:brandId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								":brandId"
+							],
+							"variable": [
+								{
+									"key": "brandId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Brand",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "Create A Color (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/color",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"color"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Color (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/color/:colorId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"color",
+								":colorId"
+							],
+							"variable": [
+								{
+									"key": "colorId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Color (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/color/:colorId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"color",
+								":colorId"
+							],
+							"variable": [
+								{
+									"key": "colorId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Color",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/color/:colorId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"color",
+								":colorId"
+							],
+							"variable": [
+								{
+									"key": "colorId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Color",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/color",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"color"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coupon",
+			"item": [
+				{
+					"name": "Create A Coupon (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"discount\":\"\",\r\n    \"expiry\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/coupon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Coupon (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"discount\":\"\",\r\n    \"expiry\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/coupon/:couponId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"coupon",
+								":couponId"
+							],
+							"variable": [
+								{
+									"key": "couponId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Coupon (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWM5NDFlNDA1NDJiMzhkYmQwYmVhYSIsImlhdCI6MTczOTUzNDY4NSwiZXhwIjoxNzM5NjIxMDg1fQ.XEmpg_StzEO3QeaKrj4IjTab4-c76Yo7uMy6PrEU4F8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/coupon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete A Coupon (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/coupon/:couponId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"coupon",
+								":couponId"
+							],
+							"variable": [
+								{
+									"key": "couponId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply Coupon (Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coupon\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/cart/apply-coupon",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"cart",
+								"apply-coupon"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get Order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"order"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cash Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"couponApplied\": \"\",\r\n    \"firstname\":\"\",\r\n    \"lastname\":\"\",\r\n    \"address\":\"\",\r\n    \"city\":\"\",\r\n    \"phone\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/cash",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"cash"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/:orderId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/order/:orderId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								":orderId"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/order/:orderId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								":orderId"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add To Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"productId\":\"\",\r\n    \"quantity\":\"\",\r\n    \"color\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"productId\":\"\",\r\n    \"quantity\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/remove-product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"remove-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"productId\":\"\",\r\n    \"quantity\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

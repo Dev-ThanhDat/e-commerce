@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playwrite+AU+SA:wght@100..400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #febd69;
+      border-radius: 50px;
+    }
+  }
+  body {
+    @apply font-manrope bg-color-f5f5f7 text-sm text-color-131921 leading-normal;
+  }
+}
+
+@layer components {
+  .pagination {
+    @apply flex items-center justify-center flex-wrap gap-5;
+    .page-item .page-link {
+      @apply flex items-center justify-center transition-all duration-[0.2s] ease-linear w-[40px] h-[40px] rounded-full hover:bg-color-febd69 hover:text-white border-2 border-transparent text-base;
+    }
+    .page-item.active .page-link {
+      @apply bg-color-febd69 border-2 border-white font-bold text-white;
+    }
+    .page-item.disabled .page-link {
+      @apply invisible;
+    }
+  }
+
+  .skeleton {
+    background-color: #eee;
+    background-image: linear-gradient(
+      110deg,
+      #ececec 8%,
+      #f5f5f5 18%,
+      #ececec 33%
+    );
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+
+  .ecommerce-swiper {
+    @apply w-full min-h-[600px] h-full rounded-[10px] overflow-hidden;
+  }
+  .swiper .swiper-wrapper {
+    @apply w-full;
+  }
+
+  .ecommerce-swiper .swiper-wrapper {
+    @apply w-full md:w-[calc(50%-10px)];
+  }
+
+  .swiper .swiper-wrapper .swiper-slide {
+    @apply w-full;
+  }
+
+  .ecommerce-swiper .swiper-button-prev,
+  .ecommerce-swiper .swiper-button-next {
+    @apply text-white w-[28px] h-[66px] transition-all rounded-md  bg-opacity-10;
+    &:hover {
+      @apply text-white transition-all;
+    }
+    &::after {
+      @apply text-[20px] font-semibold;
+    }
+  }
+  .ecommerce-swiper .swiper-button-prev {
+    left: 0;
+  }
+
+  .ecommerce-swiper .swiper-button-next {
+    right: 0;
+  }
+}
