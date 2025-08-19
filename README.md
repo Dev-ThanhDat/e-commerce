@@ -53,4 +53,4 @@
 
 **User Website:** [https://e-commerce-public-pearl.vercel.app](https://e-commerce-public-pearl.vercel.app)
 
-**Video:** [https://bit.ly/ptd-ecommerce](https://bit.ly/ptd-ecommerce)
+**Video:** [[https://bit.ly/ptd-ecommerce](https://drive.google.com/file/d/1OqOAW9t2BdIhdtG7vbfCQDREdfrQTyht/view?usp=sharing)](https://bit.ly/ptd-ecommerce)
